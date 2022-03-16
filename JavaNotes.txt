@@ -1,0 +1,33 @@
+Java Platform
+	Has 3 parts --> Java prog Lang, Java SE APIs and JVM.
+	
+	Application Source Code-[compiles to]->Application Bytecode[+3rd Party Libs]-->(Java SE APIs-->JVM)JDK-->OS-->Hardware
+	
+	Hello.java-[javac]->Hello.class(bytecode)<-->Java SE APIs(standard library e.g. system class)-->JVM[runs java]
+
+Java Runtime Environment
+	Enables Java code execution
+
+Java Development Kit
+	Tools required to create Java apps
+	
+Compile and Run
+	javac Hello.java
+	java Hello-->(name of the class with main method)
+	(for packages)-->java com.pluralsight.examples.Main
+
+Classes -> Packages -> Modules (grouped into, for easy management)
+
+JAVA EE
+	Java Enterprise Application-->Java EE APIs-->Java SE APIs-->JVM
+	
+	Java EE Application-->Java EE Application Server-->JVM
+
+Microframeworks
+	Spring Boot Application-->Java SE APIs-->JVM
+	->Spring uses dependency injection.
+	
+Package Naming Conventions
+	All lowercase.
+	e.g.-->package com.pluralsight.examples;
+
