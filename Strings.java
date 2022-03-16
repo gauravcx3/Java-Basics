@@ -110,27 +110,32 @@ public class Strings {
     String str23 = String.format("%x", 32);
     String str24 = String.format("%#x", 32);
     System.out.println(str23 + " <--> " + str24);
+
     // Width and Format Flags
     // (_d) number of characters to display (number before the d)
     String str25 = String.format("A:%4d B:%4d", 1, 1000);
     String str26 = String.format("A:%4d B:%4d", 1000, 1);
     System.out.println(str25);
     System.out.println(str26);
+
     // (0) padding (pad with zeros before the d)
     String str27 = String.format("C:%04d D:%04d", 1, 1000);
     String str28 = String.format("C:%04d D:%04d", 1000, 1);
     System.out.println(str27);
     System.out.println(str28);
+
     // (-) flag (left justify) / (+) flag (right justify)
     String str29 = String.format("E:%-4d F:%-4d", 1, 1000);
     String str30 = String.format("E:%-4d F:%-4d", 1000, 1);
     System.out.println(str29);
     System.out.println(str30);
+
     // (,) flag (grouping)
     String str31 = String.format("%,d", 123456789);
     String str32 = String.format("%,.4f", 123456789.0d);
     System.out.println(str31);
     System.out.println(str32);
+
     // _(space), + and ( flags
     // _(space) flag adds a space before positive numbers
     // + flag adds a plus or minus sign before numbers
@@ -150,5 +155,16 @@ public class Strings {
     System.out.println(str38);
     String str39 = String.format("% (d", pos); // adds a space if no parenthesis
     System.out.println(str39);
+  
+    // Argument Index
+    // --> %[argument index][flags][width][precision] conversion
+    // --> argument index starts at 1 - %1$s, %2$s, %3$s
+    // --> %_$d, %_$f, %_$s 0 - index followed by $ sign.
+    String str40 = String.format("%3$.1f %1$.2f %2$.3f", 1.0d, 2.0d, 3.0d);
+    System.out.println(str40);
+    
+    // --> (<) without $ sign - %<d, %<f, %<s - corrosponds to same argument as previous format specifier
+    String str41 = String.format("%3$.1f %<.2f %2$.3f", 1.0d, 2.0d, 3.0d);
+    System.out.println(str41);
   }
 }
