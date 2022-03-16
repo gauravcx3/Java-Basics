@@ -2,6 +2,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class DateTime {
   // Instant Class
@@ -45,7 +46,7 @@ public class DateTime {
     // Converting Strings to LocalDate
     String dateString = "2022-01-01";
     LocalDate customDate = LocalDate.parse(dateString);
-    LocalDate newDate = customDate.plusDays(3);
+    LocalDate newDate = customDate.plusDays(3); // Add 3 days to the custom date
     System.out.println(newDate);
 
     // Printing LocalDate with String.format 
@@ -57,5 +58,21 @@ public class DateTime {
     // --> Supports timezone information
     // --> Can work with values accross timezones
     // --> Can be converted to different time zones
+
+    // DateTimeFormatter
+    LocalDate today = LocalDate.now();
+    System.out.println(today);
+    DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    String formattedDate = today.format(myFormat);
+    System.out.println(formattedDate);
+
+    // Parsing Strings to LocalDate
+    String strDate = "01-02-2020";
+    LocalDate parsedDate = LocalDate.parse(strDate, myFormat);
+    System.out.println(parsedDate);
+    
+    formattedDate = parsedDate.format(myFormat);
+    System.out.println(formattedDate);
+
   }
 }

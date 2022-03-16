@@ -28,5 +28,56 @@ public class DataTypes{
 
     // Boolean Types
     boolean myBoolean = true;       // 8 bits, 1 byte, true or false
+
+    // Type Conversion
+    // Implicit type conversion - automatically done by compiler
+    int a2 = 1;
+    double b2 = a2;
+
+    // Widening conversions are performed automatically for Implicit type conversion
+    // -->Mixed integer sizes - compiler will choose the largest integer in equation
+    // -->Mixed float sizes - compiler will choose the largest size (double)
+    // -->Mixed integer and float sizes - compiler will choose the largest floating point in equation
+
+    // Explicit type conversion - explicitly done with cast operator
+    double c2 = 1.0;
+    int d2 = (int) c2; // (int) is the cast operator
+
+    // Can perform widening or narrowing conversions or Explicit type conversion
+    // -->Narrowing conversions - Significant bits may be lost
+    // -->Floating point to integer - Fractal portion is discarded
+    // -->Integer to floating point - Precision may be lost
+
+    // Primitive wrapper classes
+    // --> Can hold primitive data values
+    // --> Provides methods
+    
+    // Each primitive type has a corresponding wrapper class
+    // Corresponding to Integer Types
+    Byte myByte2 = 12;
+    Short myShort2 = 1234;
+    Integer myInt2 = 123456789;
+    Long myLong2 = 123456789012345L;
+    
+    // Corresponding to Floating Point Types
+    Float myFloat2 = 12.34f;
+    Double myDouble3 = 12.34;
+
+    // Corresponding to Character Types
+    Character myChar3 = 'a';
+
+    // Corresponding to Boolean Types
+    Boolean myBoolean2 = true;
+
+    // Methods allow us to do common operations such as - 
+    // --> Converting to/from other types
+    // --> Extracting values from strings
+    // --> Finding min/max values
+    // --> Many others
+
+    // Example of converting from a string to an integer
+    String myString = "123";
+    int myInt3 = Integer.parseInt(myString); 
+    System.out.println(myInt3);
   }
 }

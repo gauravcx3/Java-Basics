@@ -3,7 +3,6 @@ Some notes I made while learning the basics of the Java Language.
 
 Notes Order-
 - DataTypes
-- TypeConversions
 - BasicOperators
 - Conditional Logic
 - LoopsArrays
@@ -11,3 +10,4 @@ Notes Order-
 - UserInput
 - CommandLineArgs
 - Strings
+- DateTime
