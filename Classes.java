@@ -79,6 +79,17 @@ public class Classes {
     {
       item.showFavouriteFruit();
     }
+
+    ClassInterface.PublicBus publicBus = new ClassInterface.PublicBus();
+    publicBus.passengers = 30;
+    publicBus.removePassengers(20);
+    publicBus.checkPassengers();
+
+    ClassInterface.PrivateBus privateBus = new ClassInterface.PrivateBus();
+    // privateBus.passengers = 20;      // Error: The field ClassInterface.PrivateBus.passengers is not visible.
+    privateBus.addPassengers(20);       // Works as method is not private.
+    // privateBus.removePassengers(10); // Error: The method removePassengers(int) from the type ClassInterface.PrivateBus is not visible.
+    privateBus.checkPassengers();
   }
 
   // This method creates a new instance of Classes and returns it.
