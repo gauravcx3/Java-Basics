@@ -11,6 +11,12 @@ public class Classes {
   // --> Constructors are used to initialize the state of an object.
   // --> Constructors have the same name as the class and no return type.
   // --> Code in a constructor is run automatically when an object is created.
+  // --> Empty constructors are created by default. (Unless we specify our own constructor).
+  // --> Constructor that is empty is called the default constructor.
+  // --> We can have multiple constructors. However, each must have an unique paramenter list.
+  // --> Unique parameter lists are used to differentiate between constructors. 
+  // --> Unique parameter list - Different number of parameters/Different parameter types. (Different Signatures).
+  // --> We can choose to make a constructor private. (Only accessible within the class).
   Classes() {
     fruits = new String[] { "Apple", "Banana", "Orange", "Watermelon" };
     colors = new String[] { "Red", "Yellow", "Orange", "Green" };
@@ -80,16 +86,23 @@ public class Classes {
       item.showFavouriteFruit();
     }
 
-    ClassInterface.PublicBus publicBus = new ClassInterface.PublicBus();
+    ClassMore.PublicBus publicBus = new ClassMore.PublicBus();
     publicBus.passengers = 30;
     publicBus.removePassengers(20);
     publicBus.checkPassengers();
 
-    ClassInterface.PrivateBus privateBus = new ClassInterface.PrivateBus();
+    ClassMore.PrivateBus privateBus = new ClassMore.PrivateBus();
     // privateBus.passengers = 20;      // Error: The field ClassInterface.PrivateBus.passengers is not visible.
     privateBus.addPassengers(20);       // Works as method is not private.
     // privateBus.removePassengers(10); // Error: The method removePassengers(int) from the type ClassInterface.PrivateBus is not visible.
     privateBus.checkPassengers();
+
+    // fare = 40, charge = 30d, discount = 20
+    ClassMore.FareCalculator fareCalculator6 = new ClassMore.FareCalculator(40, 30d, 20);
+    System.out.println(fareCalculator6.discount); // 20
+    
+    // Error: The constructor ClassMore.FareCalculator(int, boolean) is not visible
+    // ClassMore.FareCalculator fareCalculator7 = new ClassMore.FareCalculator(50, true);
   }
 
   // This method creates a new instance of Classes and returns it.

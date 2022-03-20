@@ -1,4 +1,4 @@
-public class ClassInterface {
+public class ClassMore {
   // Classes
   // --> Contain state (multiple pieces of data that work together)
   // --> Contain code to manipulate the state (data and code operating on it)
@@ -27,6 +27,13 @@ public class ClassInterface {
   // Special References
   // this - Implicit reference to current object. Allows an object to pass itself as a parameter. (class variable).
   // null - Represents an uncreated object.
+
+  // Initialization Blocks
+  // --> Code that is run when an object is created. (Before the constructor is called).
+  // --> Cannot receive parameters.
+  // --> Place code within curly braces outside of any method or constructor.
+  // --> A class can have multiple initialization blocks. (Executed from top to bottom).
+  // --> All initialization blocks are executed before any other code.
 
   static public class PublicBus{
     public int passengers;
@@ -71,12 +78,55 @@ public class ClassInterface {
     void checkPassengers(){
       System.out.println("There are " + passengers + " passengers on the bus.");
     }
-
+  }
     static public class FareCalculator{
       int fare;
+      double charge;
+      int discount;
+      int specialDiscount1;
+      int specialDiscount2;
+      int specialDiscount3;
+      int specialDiscount4;
+
+      // Initialization Block - runs when an object is created.
+      {
+        specialDiscount1 = 10;
+        specialDiscount2 = 20;
+        specialDiscount3 = 30;
+        specialDiscount4 = 40;
+      }
 
       public FareCalculator(){
         fare = 10;
+        charge = 0.5;
+        discount = 0;
+      }
+
+      public FareCalculator(int fare){
+        this.fare = fare;
+        this.charge = 1.5;
+      }
+
+      // Chaining Constructors. (Must be the first line of code in the constructor.)
+      public FareCalculator(int fare, double charge){
+        this(fare);                    // Call the other constructor that takes in a fare.
+        this.charge = charge;
+      }
+
+      public FareCalculator(double charge){
+        // If charge is greater than 20, set fare to 30, otherwise set fare to 40.
+        this(charge > 20 ? 30 : 40);   // Call the other constructor that takes in a fare.
+        this.charge = charge;
+      }
+
+      private FareCalculator(int discount, boolean isDiscounted){
+        this.discount = isDiscounted == true ? discount : 0;
+      }
+
+      public FareCalculator(int fare, double charge, int discount){
+        this(discount, true);          // Call the other constructor that takes in a discount and a boolean.
+        this.fare = fare;
+        this.charge = charge;
       }
 
       public void addFare(int amount){
@@ -90,14 +140,24 @@ public class ClassInterface {
     }
 
     public static void main(String[] args){
-      FareCalculator fareCalculator = new FareCalculator();
-      fareCalculator.addFare(10);
+      FareCalculator fareCalculator = new FareCalculator();             // fare = 10
+      fareCalculator.addFare(10);                                       // this.fare = 10 + 10 = 20
 
-      FareCalculator fareCalculator2 = null; // FareCalculator2 is null. (object is not created yet)
-      System.out.println(fareCalculator2);
+      FareCalculator fareCalculator2 = new FareCalculator(30);          // fare = 30
+      fareCalculator2.addFare(10);                                      // this.fare = 30 + 10 = 40
+
+      FareCalculator fareCalculator3 = null; // FareCalculator2 is null. (object is not created yet)
+      System.out.println(fareCalculator3);
+
+      FareCalculator fareCalculator4 = new FareCalculator(30, 10.0d);   // fare = 30, charge = 10.0d
+      fareCalculator4.addFare(10);                                      // this.fare = 30 + 10 = 40
+      System.out.println(fareCalculator4.charge);
+
+      FareCalculator fareCalculator5 = new FareCalculator(10.0d);       // fare = 40, charge = 10.0d
+      fareCalculator5.addFare(10);                                      // this.fare = 40 + 10 = 50
+      System.out.println(fareCalculator5.charge);
     }
-  }
-
+  
   // Interfaces
   // --> Model data type behavior (without implementation)
   // --> Create contracts between data types (how they should interact)
