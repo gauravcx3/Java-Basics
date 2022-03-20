@@ -13,4 +13,5 @@ Notes Order-
 - DateTime
 - Classes
 - TestClasses
-- 
+- StaticCode
+- TestStatic

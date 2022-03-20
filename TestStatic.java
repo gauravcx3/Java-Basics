@@ -1,3 +1,6 @@
+// Example of Static Import:
+import static java.lang.Math.sqrt; // We can now directly use sqrt()
+
 public class TestStatic {
   
   public static void main(String[] args) {
@@ -14,8 +17,13 @@ public class TestStatic {
     System.out.println(instance1.instanceNumber + ", " + instance2.instanceNumber);
 
     // Correct way to change staticNumber. (No need to create an instance.)
-    StaticCode.staticNumber = 40; 
+    StaticCode.staticNumber = 64; 
     System.out.println(StaticCode.staticNumber);
+
+    System.out.println(sqrt(StaticCode.staticNumber));
+
+    System.out.println(String.format("%d, %d, %d", StaticCode.staticInt1, StaticCode.staticInt2, StaticCode.staticInt3));
+    
   }
 
 }
