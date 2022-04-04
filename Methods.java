@@ -52,6 +52,33 @@ public class Methods {
     bus2 = temp;
   }
 
+  // Overloading - Multiple versions of a method or constructor within the same class.
+  // --> Each constructor or method must have a unique parameter list. (Different Signatures).
+  // --> (Different number of parameters/Different parameter types).
+  // --> Check Classes.java/FareCalculator for an example of overloading.
+
+  // Variable Length Parameters
+  // --> A method can accept a variable number of parameters.
+  // --> Add an ellipsis (...) after the parameter type.
+  // --> Only the last parameter can be a variable length parameter.
+  // --> Method automatically receives the values as an array.
+  static int addMultipleNumbers(int... numberList) {  // instead of int[] numberList
+    int sum = 0;
+    for (int number : numberList) {
+      sum = sum + number;
+    }
+    return sum;
+  }
+
+  static int addMultipleNumbers2(int[] numberList) {
+    int sum = 0;
+    for (int number : numberList) {
+      sum = sum + number;
+    }
+    return sum;
+  }
+  
+
   public static void main(String[] args) {
     Methods methods = new Methods();    // create an object of the class
     methods.printHello("Batman");       // call the method
@@ -82,5 +109,11 @@ public class Methods {
     System.out.println(String.format("bus3: %s, bus4: %s", bus3.busName, bus4.busName));
     System.out.println(bus1);
     System.out.println(bus2);
+
+    // No need to create an array to pass to the method. Variable length parameters can be used.
+    System.out.println(addMultipleNumbers(10, 40, 50)); 
+
+    // Need to create a new array to pass to the method.
+    System.out.println(addMultipleNumbers2(new int[] {10, 40, 50}));
   }
 }

@@ -14,7 +14,7 @@ public class TestClasses {
   // --> Empty constructors are created by default. (Unless we specify our own constructor).
   // --> Constructor that is empty is called the default constructor.
   // --> We can have multiple constructors. However, each must have an unique paramenter list.
-  // --> Unique parameter lists are used to differentiate between constructors.
+  // --> Unique parameter lists are used to differentiate between constructors. (Overloading)
   // --> Unique parameter list - Different number of parameters/Different parameter types. (Different Signatures).
   // --> We can choose to make a constructor private. (Only accessible within the class).
   TestClasses() {
