@@ -19,8 +19,13 @@ public class Inheritance {
       System.out.println("Station ID: " + stationID);
       System.out.println("Station Capacity: " + stationCapacity);
     }
+
+    public void check(){
+      System.out.println("Checking station...");
+    }
   }
 
+  // TaxiStand is a subclass of Station
   public class TaxiStand extends Station{
     int taxiStandCapacity;
 
@@ -32,6 +37,14 @@ public class Inheritance {
     public void showTaxiStand(){
       System.out.println("Taxi Stand/Station ID: " + stationID);
       System.out.println("Taxi Stand Capacity: " + taxiStandCapacity);
+    }
+
+    // Method Overriding - Indicates that a method is overriding a method in a superclass.
+    // --> Subclass method has the same name as the superclass method.
+    // --> Subclass method will be used instead of the superclass method.
+    @Override
+    public void check(){
+      System.out.println("Checking taxi stand...");
     }
   }
 
@@ -53,6 +66,7 @@ public class Inheritance {
     records[1] = inheritance.new TaxiStand(2, 2000, 300);
     // records[1].showTaxiStand(); // we cannot access the subclass methods or variables
 
+    myTaxiStand.check();
   }
 
 }
